@@ -8,6 +8,6 @@ Simple flashcards app which shows user an answer to a predetermined question whe
 
 Here's a walkthrough of implemented user stories:
 
-[Flashcards App]<img src = "https://user-images.githubusercontent.com/62907869/182002474-45986c21-5fa4-4281-b267-ec5750f06533.gif" width = 200>
+<img src = "https://user-images.githubusercontent.com/62907869/182002474-45986c21-5fa4-4281-b267-ec5750f06533.gif" width = 200>
 
 
