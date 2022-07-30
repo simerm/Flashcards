@@ -5,5 +5,5 @@ Simple flashcards app which shows user an answer to a predetermined question whe
 
 ### App Walk-though
 
-<img src="https://i.imgur.com/H5aMn1j.gif" width=200><br>
+<img src="https://i.imgur.com/H5aMn1j.gif"><br>
 
