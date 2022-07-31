@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var previousButton: UIButton!
+    @IBOutlet weak var card: UIView!
     
     var flashcards = [Flashcard]()
     var currentIndex = 0
@@ -38,14 +39,23 @@ class ViewController: UIViewController {
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        
-        let navigationController = segue.destination as! UINavigationController
-        let creationController = navigationController.topViewController as! CreationViewController
-        creationController.flashcardsController = self
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+//        
+//        let navigationController = segue.destination as! UINavigationController
+//        let creationController = navigationController.topViewController as! CreationViewController
+//        creationController.flashcardsController = self
+//    }
 
     @IBAction func didTapOnFlashcard(_ sender: Any) {
+        flipFlashcard()
+    }
+
+    func flipFlashcard(){
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight, animations: {
+            self.questionLabel.isHidden = true
+        })
+
+
         if (questionLabel.isHidden == true){
             questionLabel.isHidden = false
         }
@@ -127,8 +137,26 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    
-    
+    func animateCardOut(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        }, completion: { finished in
+            self.animateCardIn()
+        })
+
+        self.updateLabels()
+
+        self.animateCardIn()
+    }
+
+    func animateCardIn(){
+
+        card.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+
+        UIView.animate(withDuration: 0.3) {
+            self.card.transform = CGAffineTransform.identity
+        }
+    }
+
 }
 
